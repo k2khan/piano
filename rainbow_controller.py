@@ -21,13 +21,14 @@ class RainbowController:
         self.pixels.fill((0,0,0))
 
 
-    def process_event(self, event):
-        self.color_off = self.color_on
-        if self.next_light % (self.num_lights * 2) == 0:
-            self.next_light = 0
+    def process_event(self, event, wantRainbow):
+        if wantRainbow:
+            self.color_off = self.color_on
+            if self.next_light % (self.num_lights * 2) == 0:
+                self.next_light = 0
 
-        # pick the next color to turn on
-        self.color_on = wheel(self.next_light * 256 // self.num_lights )
+            # pick the next color to turn on
+            self.color_on = wheel(self.next_light * 256 // self.num_lights )
 
         # Only turn on one light for a chord
         message, deltatime = event
