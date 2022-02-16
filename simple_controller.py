@@ -1,7 +1,5 @@
 # libraries for controlling lights
-import board
-import neopixel
-from rainbow_controller import *
+from rainbow_controller import RainbowController
 from piano_lights import LightsFromPiano
 
 controller = RainbowController(128)
